@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
+import {reducer, initialState} from '../reducers/reducer';
+// import {initialState} from '../reducers/reducer';
 
 const getRates = () => {
     const response = { "status": "200", "message": "rates", "data": { "EURRUB": "71.3846", "USDRUB": "58.059" } }
@@ -12,12 +14,13 @@ function RateLine({title, value}) {
 }
 
 function Rates() {
-    const [rates, setRates] = useState({});
+    // const [rates, setRates] = useState({});
+    const [rates, dispatch] = useReducer(reducer, initialState);
 
-    useEffect(() => {
-        const rates = getRates();
-        setRates(rates);
-    }, []);
+    // useEffect(() => {
+    //     const rates = getRates();
+    //     setRates(rates);
+    // }, []);
 
     return <>
         <h1>Rates</h1>
