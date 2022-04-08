@@ -25,7 +25,7 @@ function Rates() {
     return <>
         <h1>Rates</h1>
         <div>
-            { Object.entries(rates).map(([title, value]) => <RateLine title={title} value={value} />) }
+            { Object.entries(rates).map(([title, value], key) => <RateLine key={key} title={title} value={value} />) }
         </div>
     </>
 }
